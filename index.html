@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="header">
+        <h1>Calculator</h1>
+    </div>
+    <div class="input">
+        <label for="input">Enter Values: </label>
+    <input type="text" id="input">
+</div>
+    <div >
+    <button onclick="calculator()" class="Submit">Submit</button>
+</div>
+<p style="text-align: center;">Choose the Operator for final calulation</p>
+<div class="Operators">
+    <div >
+    <button class="Multiplication" onclick="multiplyArray()">Multiplication</button>
+    </div>
+    <div>
+    <button class="Subtraction" onclick="subtractionArray()">Subtraction</button>
+</div>
+<div>
+    <button class="Addition" onclick="additionArray()">Addition</button>
+</div>
+<div>
+    <button class="Division" onclick="divisionArray()">Division</button>
+</div>
+</div>
+<script>
+    const arr=[];
+    function calculator(){
+        
+        var input=parseInt(document.getElementById('input').value);
+        if(isNaN(input)){
+            window.alert("Enter a valid number");
+            document.getElementById( 
+        'input').value = '';
+        return; 
+        }
+        arr.push(input);
+        console.log(arr);
+        document.getElementById( 
+        'input').value = '';
+
+    }
+    function multiplyArray() {
+        let n=arr.length;
+    let product = 1; 
+    for (let i = 0; i < n; i++) {
+    product *= arr[i];
+}
+document.getElementById("input").value=product;
+arr.splice(0);
+}
+function additionArray(){
+    let n=arr.length;
+    let sum=0;
+    for(let i=0;i<n;i++){
+        sum+=arr[i];
+    }
+    document.getElementById("input").value=sum;
+    arr.splice(0);
+}
+function divisionArray(){
+    let n=arr.length;
+    let result=arr[0];
+    for(let i=1;i<n;i++){
+        result/=arr[i]; 
+    }
+    document.getElementById("input").value=result;
+    arr.splice(0);
+    
+}
+function subtractionArray(){
+    let n=arr.length;
+    let result=arr[0];
+    for(let i=1;i<n;i++){
+        result-=arr[i];
+    }
+    document.getElementById("input").value=result;
+    arr.splice(0);
+}
+
+</script>
+</body>
+</html>
